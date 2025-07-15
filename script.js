@@ -23,8 +23,12 @@ while (inp !== "quit") {
     console.log("********");
   } else if (inp === "delete") {
     let num = prompt("Enter the task number you want to delete:");
-    console.log(`${todos[num]} has been deleted.`);
-    todos[num] = `${num}: empty`;
+    if (num < todos.length) {
+      console.log(`${todos[num]} has been deleted.`);
+      todos[num] = `${num}: empty`;
+    } else {
+      alert("Please enter a valid index.");
+    }
   } else {
     alert("Please Enter a valid input.");
   }
