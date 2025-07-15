@@ -8,16 +8,20 @@ while (inp !== "quit") {
       if (todos[i] === undefined) {
         todos.push(`${todos.length}:${task}`);
         break;
-      } else if (todos[i] === null) {
+      } else if (todos[i] === "empty") {
         todos[i] = `${i}: ${task}`;
         break;
       }
     }
   } else if (inp === "list") {
-    console.log(todos);
+    console.log("********");
+    for (let i = 0; i < todos.length; i++) {
+      console.log(todos[i]);
+    }
+    console.log("********");
   } else if (inp === "delete") {
     let num = prompt("Enter the task number you want to delete:");
-    todos[num] = null;
+    todos[num] = `${num}: empty`;
   } else {
     alert("Please Enter a valid input.");
   }
