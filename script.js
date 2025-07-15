@@ -6,10 +6,12 @@ while (inp !== "quit") {
     let task = prompt("What do you want to add?");
     for (let i = 0; i < todos.length + 1; i++) {
       if (todos[i] === undefined) {
-        todos.push(`${todos.length}:${task}`);
+        todos.push(`${i}:${task}`);
+        console.log(`${task} has been added to index ${i}.`);
         break;
       } else if (todos[i] === "empty") {
         todos[i] = `${i}: ${task}`;
+        console.log(`${task} has been added to index ${i}.`);
         break;
       }
     }
@@ -21,6 +23,7 @@ while (inp !== "quit") {
     console.log("********");
   } else if (inp === "delete") {
     let num = prompt("Enter the task number you want to delete:");
+    console.log(`${todos[num]} has been deleted.`);
     todos[num] = `${num}: empty`;
   } else {
     alert("Please Enter a valid input.");
